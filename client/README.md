@@ -1,6 +1,17 @@
-# Getting Started with Create React App
+# Web App created with create-react-app
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Modules Installed
+
+### react-router-dom
+Used to handle the pages
+
+### styled-components
+Used to handle the CSS fro the project
+
+### Eslint & Prettier
+Also installed eslint-config-prettier.
 
 ## Available Scripts
 
