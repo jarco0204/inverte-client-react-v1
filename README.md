@@ -6,6 +6,7 @@ An Express back-end that handles routes to:
 ## Installed packages
 
 
-## Client
-React app
+## How to run the program
+1. npm install
+2. npm run start
 
