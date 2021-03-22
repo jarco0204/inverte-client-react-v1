@@ -16,6 +16,8 @@ let APIURL = "http://localhost:8000";
 const SignIn = () => {
     const [emailInputValue, setEmailInputValue] = useState("");
     const [passwordInputValue, setPasswordInputValue] = useState("");
+
+    const [statusRequest, setStatusRequest] = useState("");
     const history = useHistory();
 
     const handleInputChange = (event) => {
@@ -42,11 +44,12 @@ const SignIn = () => {
             })
             .then((response) => {
                 console.log(response);
-                history.push("/newPath");
+                history.push("/username/main");
             })
             .catch((response) => {
                 console.log(response);
-                history.push("/");
+                setStatusRequest("Invalid Log-in credentials!");
+                // history.push("/");
             });
     };
 
@@ -55,6 +58,9 @@ const SignIn = () => {
             <SignInContent>
                 <SignInForm>
                     <FormTitle>Sign-In to make use of our web-app</FormTitle>
+                    <FormInputLabel htmlFor="email">
+                        {statusRequest}
+                    </FormInputLabel>
                     <FormInputLabel htmlFor="email">Email:</FormInputLabel>
                     <FormInput
                         id="email"
