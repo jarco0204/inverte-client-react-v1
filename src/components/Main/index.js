@@ -11,7 +11,7 @@ import {
 import OrderFood from "../../assets/images/cook-order.svg";
 import VisualizeAnalytics from "../../assets/images/visualize-analytics.svg";
 
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import "../../assets/css/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
 // import { io } from "socket.io-client";
 
