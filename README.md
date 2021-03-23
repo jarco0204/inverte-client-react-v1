@@ -1,3 +1,9 @@
+## Authentication Login:
+### Email: 
+jaarcos@mun.ca
+### Password:
+inverte56Rules
+
 # Web App created with create-react-app
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
