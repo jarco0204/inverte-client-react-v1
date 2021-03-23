@@ -18,12 +18,11 @@ export const HeroSection = styled.div`
     background: rgba(1, 1, 1, 0.8);
     border-radius: 20px;
     flex-flow: column wrap;
-    height: 400px;
+    height: 500px;
     width: 80%;
     margin: auto;
     justify-content: center;
     /* position: fixed; */
-    z-index: 9;
 `;
 export const HeroTitle = styled.h1`
     color: darkorange;
@@ -33,18 +32,35 @@ export const HeroTitle = styled.h1`
     padding: 5px 0;
 `;
 export const HeroFunctionality = styled.div`
+    padding-bottom: 50px;
     display: flex;
     flex-flow: column nowrap;
 `;
-export const FunctionalityTitle = styled.button`
-    border: 1px solid whitesmoke;
-    background-color: black;
+export const FunctionalityTitle = styled.h2`
+    /* border: 1px solid whitesmoke; */
+    /* background-color: black; */
     border-radius: 10px;
     margin: auto;
     text-align: center;
     font-size: 22px;
     padding: 10px 10px;
-    color: green;
+    color: whitesmoke;
+    font-weight: bold;
+    /* &:hover {
+        background: whitesmoke;
+        color: green;
+        border: 2px solid black;
+    } */
+`;
+export const FunctionalityButton = styled.button`
+    border: 1px solid whitesmoke;
+    background-color: black;
+    border-radius: 10px;
+    margin: auto;
+    text-align: center;
+    font-size: 18px;
+    padding: 10px 10px;
+    color: whitesmoke;
     font-weight: bold;
     &:hover {
         background: whitesmoke;
