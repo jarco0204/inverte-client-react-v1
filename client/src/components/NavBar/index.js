@@ -56,34 +56,10 @@ export const Navbar = ({ toggle }) => {
                     </MobileIcon>
                     <NavMenu>
                         <NavItem>
-                            <NavLinks
-                                // to={firstNavLink}
-                                smooth={true}
-                                spy={true}
-                                offset={0}
-                            >
-                                Nav1
-                            </NavLinks>
+                            <NavLinks to="#">Nav1</NavLinks>
                         </NavItem>
                         <NavItem>
-                            <NavLinks
-                                smooth={true}
-                                spy={true}
-                                exact="true"
-                                offset={0}
-                            >
-                                Nav2
-                            </NavLinks>
-                        </NavItem>
-                        <NavItem>
-                            <NavLinks
-                                smooth={true}
-                                duration={650}
-                                spy={true}
-                                offset={0}
-                            >
-                                Link3
-                            </NavLinks>
+                            <NavLinks to="#">Nav2</NavLinks>
                         </NavItem>
                     </NavMenu>
                     <NavBtn>

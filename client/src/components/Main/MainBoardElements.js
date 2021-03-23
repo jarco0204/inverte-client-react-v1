@@ -18,3 +18,10 @@ export const HeroSection = styled.div`
     /* position: fixed; */
     z-index: 9;
 `;
+export const SocketButton = styled.button`
+    display: flex;
+    background-color: black;
+    color: white;
+    margin-left: 50px;
+    align-items: center;
+`;
