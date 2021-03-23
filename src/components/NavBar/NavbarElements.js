@@ -15,12 +15,12 @@ const handleBackgroundColor = (scroll, homeNav) => {
             return "linear-gradient(90deg,rgba(44, 239, 12, 0.9) 26%,rgba(22, 200, 18, 0.5) 46%,rgba(1, 24, 156, 0.5) 46%, rgba(1, 24, 156, 0.99) 76%)";
         }
     }
-    return "rgba(1, 1, 1, 0.9)";
+    return "rgba(1, 40, 30, 1)";
 };
 export const Nav = styled.nav`
     background: ${({ scrollNav, mainNav }) =>
         handleBackgroundColor(scrollNav, mainNav)};
-    position: sticky;
+    position: relative;
     top: 0;
     z-index: 99;
 
