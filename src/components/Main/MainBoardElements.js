@@ -74,6 +74,25 @@ export const FunctionalityThumbnail = styled.img`
     height: 200px;
     width: 400px;
 `;
+export const GoBackButton = styled.button`
+    transform: translateY(-800%);
+    /* transform: translateX(-10%); */
+    margin-left: 30px;
+    position: absolute;
+    border: 1px solid whitesmoke;
+    background-color: black;
+    border-radius: 10px;
+
+    font-size: 18px;
+
+    color: whitesmoke;
+    font-weight: bold;
+    &:hover {
+        scale: 1.29;
+        background: whitesmoke;
+        color: green;
+    }
+`;
 export const SocketButton = styled.button`
     background-color: black;
     color: white;
