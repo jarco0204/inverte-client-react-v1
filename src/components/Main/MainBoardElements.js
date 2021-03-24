@@ -46,11 +46,6 @@ export const FunctionalityTitle = styled.h2`
     padding: 10px 10px;
     color: whitesmoke;
     font-weight: bold;
-    /* &:hover {
-        background: whitesmoke;
-        color: green;
-        border: 2px solid black;
-    } */
 `;
 export const FunctionalityButton = styled.button`
     border: 1px solid whitesmoke;
@@ -61,7 +56,6 @@ export const FunctionalityButton = styled.button`
     font-size: 18px;
     padding: 10px 10px;
     color: whitesmoke;
-    font-weight: bold;
     &:hover {
         background: whitesmoke;
         color: green;
