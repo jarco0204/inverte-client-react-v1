@@ -5,38 +5,45 @@ import {
     PlateOrderDetailsContainer,
     PlateOrderIngredients,
     PlateOrderIngredientsTitle,
+    PlateOrderIngredientsBody,
     PlateOrderIngredientsRow,
     PlateOrderIngredientsColumn,
     PlateOrderThumbnail,
     PlateOrderButton,
 } from "./OrderElements";
 import foodThumbnail from "../../assets/images/foodItem.svg";
-const OrderComponent = (data) => {
+const OrderComponent = (orderData) => {
     // console.log("hola");
-    // console.log(data);
+    console.log(orderData);
+    // console.log(correctPortions);
+
     return (
         <PlateOrderContainer>
-            <PlateOrderTitle>{data.data}</PlateOrderTitle>
+            <PlateOrderTitle>{orderData.ingredients.order}</PlateOrderTitle>
             <PlateOrderDetailsContainer>
                 <PlateOrderThumbnail src={foodThumbnail} />
 
                 <PlateOrderIngredients>
-                    <PlateOrderIngredientsRow>
-                        <PlateOrderIngredientsTitle>
-                            Ingredients
-                        </PlateOrderIngredientsTitle>
-                        <PlateOrderIngredientsTitle>
-                            Correct Portions
-                        </PlateOrderIngredientsTitle>
-                    </PlateOrderIngredientsRow>
-                    <PlateOrderIngredientsRow>
-                        <PlateOrderIngredientsColumn>
-                            Meat
-                        </PlateOrderIngredientsColumn>
-                        <PlateOrderIngredientsColumn>
-                            120g
-                        </PlateOrderIngredientsColumn>
-                    </PlateOrderIngredientsRow>
+                    <PlateOrderIngredientsBody>
+                        <PlateOrderIngredientsRow>
+                            <PlateOrderIngredientsTitle>
+                                Ingredients
+                            </PlateOrderIngredientsTitle>
+                            <PlateOrderIngredientsTitle>
+                                Correct Portions
+                            </PlateOrderIngredientsTitle>
+                        </PlateOrderIngredientsRow>
+                    </PlateOrderIngredientsBody>
+                    <PlateOrderIngredientsBody>
+                        <PlateOrderIngredientsRow>
+                            <PlateOrderIngredientsColumn>
+                                Meat
+                            </PlateOrderIngredientsColumn>
+                            <PlateOrderIngredientsColumn>
+                                120g
+                            </PlateOrderIngredientsColumn>
+                        </PlateOrderIngredientsRow>
+                    </PlateOrderIngredientsBody>
                 </PlateOrderIngredients>
             </PlateOrderDetailsContainer>
 

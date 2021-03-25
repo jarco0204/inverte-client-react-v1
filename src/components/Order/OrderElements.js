@@ -23,13 +23,17 @@ export const PlateOrderDetailsContainer = styled.div`
 `;
 export const PlateOrderIngredients = styled.table`
     margin-top: 10px;
-    margin-right: 50px;
+    /* margin-right: 50px; */
     border: 1px solid whitesmoke;
+    width: 210px;
     color: white;
 `;
 export const PlateOrderIngredientsTitle = styled.th`
     padding: 5px 10px;
     font-weight: bold;
+`;
+export const PlateOrderIngredientsBody = styled.tbody`
+    border: 1px solid whitesmoke;
 `;
 export const PlateOrderIngredientsRow = styled.tr`
     border: 1px solid whitesmoke;
@@ -39,9 +43,9 @@ export const PlateOrderIngredientsColumn = styled.td`
 `;
 
 export const PlateOrderThumbnail = styled.img`
-    padding: 20px 0;
-    margin: 10px 0;
-    height: 200px;
+    padding: 2px 0;
+    margin: 1px 0;
+    height: 150px;
 `;
 
 export const PlateOrderButton = styled.button`

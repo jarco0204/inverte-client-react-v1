@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import axios from "axios";
+// import axios from "axios";
 import {
     SignInContainer,
     SignInContent,
@@ -12,7 +12,7 @@ import {
 } from "./SignInElements";
 
 //Globals
-let APIURL = "http://localhost:8000";
+// let APIURL = "http://localhost:8000";
 const SignIn = () => {
     const [emailInputValue, setEmailInputValue] = useState("");
     const [passwordInputValue, setPasswordInputValue] = useState("");
@@ -35,22 +35,24 @@ const SignIn = () => {
             passIn: passwordInputValue,
         };
         console.log(dataToSend);
-        await axios
-            .post(APIURL + "/api/user/validate", dataToSend, {
-                headers: {
-                    "Content-Type": "application/json;charset=UTF-8",
-                    "Access-Control-Allow-Origin": APIURL,
-                },
-            })
-            .then((response) => {
-                console.log(response);
-                history.push("/username/main");
-            })
-            .catch((response) => {
-                console.log(response);
-                setStatusRequest("Invalid Log-in credentials!");
-                // history.push("/");
-            });
+        setStatusRequest("Welcome");
+        history.push("/username/main");
+        // await axios
+        //     .post(APIURL + "/api/user/validate", dataToSend, {
+        //         headers: {
+        //             "Content-Type": "application/json;charset=UTF-8",
+        //             "Access-Control-Allow-Origin": APIURL,
+        //         },
+        //     })
+        //     .then((response) => {
+        //         console.log(response);
+        //         history.push("/username/main");
+        //     })
+        //     .catch((response) => {
+        //         console.log(response);
+        //         setStatusRequest("Invalid Log-in credentials!");
+        //         // history.push("/");
+        //     });
     };
 
     return (

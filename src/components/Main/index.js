@@ -51,7 +51,7 @@ const MainComponent = () => {
 
     // function to get plate orders
     const fetchAvailablePlates = async () => {
-        console.log("execute");
+        // console.log("execute");
         let APIURL = "http://localhost:8000";
         let dataToSend = {
             userID: "johanArcos_5680",
@@ -74,16 +74,19 @@ const MainComponent = () => {
                 }
             )
             .then((response) => {
-                let orders = response.data.obj;
+                let orders = response.data.obj.orders;
                 let orderComponents = [];
-                console.log(orders);
+                // console.log(orders);
                 for (let i = 0; i < orders.length; i++) {
-                    console.log(i);
+                    let dataToPass = {
+                        order: orders[i],
+                        ingredients: response.data.obj.ingredients[i],
+                    };
                     orderComponents.push(
-                        <OrderComponent key={i} data={orders[i]} />
+                        <OrderComponent key={i} ingredients={dataToPass} />
                     );
                 }
-                console.log(orderComponents);
+                // console.log(orderComponents);
                 setPlateOrders(orderComponents);
                 //Create plate components
             })
