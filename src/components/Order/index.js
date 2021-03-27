@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"; //, { useState }
 import {
     PlateOrderContainer,
     PlateOrderTitle,
@@ -13,16 +13,48 @@ import {
 } from "./OrderElements";
 import foodThumbnail from "../../assets/images/foodItem.svg";
 const OrderComponent = (orderData) => {
-    // console.log("hola");
-    console.log(orderData);
-    // console.log(correctPortions);
+    // let length = 4;
+    // const [orderInfo, setOrderInfo] = useState(false);
+
+    const buildTable = () => {
+        // console.log(orderData);
+        let data = [];
+        for (let i = 0; i < orderData.ingredients.ingredients.length; i++) {
+            data.push(
+                <PlateOrderIngredientsBody key={i}>
+                    <PlateOrderIngredientsRow>
+                        {insertColumns(
+                            orderData.ingredients.ingredients[i],
+                            orderData.ingredients.correctPortions[i]
+                        )}
+                    </PlateOrderIngredientsRow>
+                </PlateOrderIngredientsBody>
+            );
+        }
+        return data;
+    };
+    const insertColumns = (ingredient, portion) => {
+        let data = [];
+
+        data.push(
+            <>
+                <PlateOrderIngredientsColumn>
+                    {ingredient}
+                </PlateOrderIngredientsColumn>
+                <PlateOrderIngredientsColumn>
+                    {portion}
+                </PlateOrderIngredientsColumn>
+            </>
+        );
+
+        return data;
+    };
 
     return (
         <PlateOrderContainer>
             <PlateOrderTitle>{orderData.ingredients.order}</PlateOrderTitle>
             <PlateOrderDetailsContainer>
                 <PlateOrderThumbnail src={foodThumbnail} />
-
                 <PlateOrderIngredients>
                     <PlateOrderIngredientsBody>
                         <PlateOrderIngredientsRow>
@@ -30,20 +62,11 @@ const OrderComponent = (orderData) => {
                                 Ingredients
                             </PlateOrderIngredientsTitle>
                             <PlateOrderIngredientsTitle>
-                                Correct Portions
+                                Weight
                             </PlateOrderIngredientsTitle>
                         </PlateOrderIngredientsRow>
                     </PlateOrderIngredientsBody>
-                    <PlateOrderIngredientsBody>
-                        <PlateOrderIngredientsRow>
-                            <PlateOrderIngredientsColumn>
-                                Meat
-                            </PlateOrderIngredientsColumn>
-                            <PlateOrderIngredientsColumn>
-                                120g
-                            </PlateOrderIngredientsColumn>
-                        </PlateOrderIngredientsRow>
-                    </PlateOrderIngredientsBody>
+                    {buildTable()}
                 </PlateOrderIngredients>
             </PlateOrderDetailsContainer>
 

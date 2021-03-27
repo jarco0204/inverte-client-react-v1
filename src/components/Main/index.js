@@ -38,10 +38,11 @@ const MainComponent = () => {
     const [plateOrders, setPlateOrders] = useState([]);
 
     //Function to change the shown component
-    const changeComponent = (direction) => {
+    const changeComponent = async (e, direction) => {
+        e.preventDefault();
         if (direction) {
             setVisible(false);
-            fetchAvailablePlates();
+            await fetchAvailablePlates();
             setOrderVisible(true);
         } else {
             setVisible(true);
@@ -61,7 +62,7 @@ const MainComponent = () => {
         //     results.push(<h1>Hola{i}</h1>);
         // }
 
-        console.log(dataToSend);
+        // console.log(dataToSend);
         await axios
             .get(
                 APIURL + "/api/user/getPlateOrders",
@@ -76,12 +77,14 @@ const MainComponent = () => {
             .then((response) => {
                 let orders = response.data.obj.orders;
                 let orderComponents = [];
-                // console.log(orders);
                 for (let i = 0; i < orders.length; i++) {
                     let dataToPass = {
                         order: orders[i],
                         ingredients: response.data.obj.ingredients[i],
+                        correctPortions: response.data.obj.correctPortions[i],
                     };
+                    // console.log(dataToPass);
+
                     orderComponents.push(
                         <OrderComponent key={i} ingredients={dataToPass} />
                     );
@@ -114,7 +117,7 @@ const MainComponent = () => {
                                 </FunctionalityTitle>
                                 <FunctionalityThumbnail src={OrderFood} />
                                 <FunctionalityButton
-                                    onClick={() => changeComponent(true)}
+                                    onClick={(e) => changeComponent(e, true)}
                                 >
                                     Select Plate
                                 </FunctionalityButton>
@@ -135,7 +138,9 @@ const MainComponent = () => {
                 )}
                 {order && (
                     <>
-                        <GoBackButton onClick={() => changeComponent(false)}>
+                        <GoBackButton
+                            onClick={(e) => changeComponent(e, false)}
+                        >
                             Go back
                         </GoBackButton>
                         <HeroTitle>What are you cooking?</HeroTitle>

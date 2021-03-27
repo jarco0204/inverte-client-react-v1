@@ -14,6 +14,7 @@ import {
 //Globals
 // let APIURL = "http://localhost:8000";
 const SignIn = () => {
+    //Hooks
     const [emailInputValue, setEmailInputValue] = useState("");
     const [passwordInputValue, setPasswordInputValue] = useState("");
 
