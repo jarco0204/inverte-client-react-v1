@@ -1,4 +1,5 @@
 import React from "react"; //, { useState }
+import { useHistory } from "react-router-dom";
 import {
     PlateOrderContainer,
     PlateOrderTitle,
@@ -16,6 +17,17 @@ const OrderComponent = (orderData) => {
     // let length = 4;
     // const [orderInfo, setOrderInfo] = useState(false);
 
+    const history = useHistory(); // Allows us to switch page
+    const beginOrder = (event) => {
+        event.preventDefault();
+        console.log("Button clicked");
+        // Tell the weighing scales to begin tracking weight.
+        history.push({
+            pathname: "/username/prepare",
+            state: { order: orderData.ingredients },
+        });
+    };
+
     const buildTable = () => {
         // console.log(orderData);
         let data = [];
@@ -25,7 +37,8 @@ const OrderComponent = (orderData) => {
                     <PlateOrderIngredientsRow>
                         {insertColumns(
                             orderData.ingredients.ingredients[i],
-                            orderData.ingredients.correctPortions[i]
+                            orderData.ingredients.correctPortions[i],
+                            i
                         )}
                     </PlateOrderIngredientsRow>
                 </PlateOrderIngredientsBody>
@@ -33,18 +46,18 @@ const OrderComponent = (orderData) => {
         }
         return data;
     };
-    const insertColumns = (ingredient, portion) => {
+    const insertColumns = (ingredient, portion, i) => {
         let data = [];
 
         data.push(
-            <>
+            <React.Fragment key={i}>
                 <PlateOrderIngredientsColumn>
                     {ingredient}
                 </PlateOrderIngredientsColumn>
                 <PlateOrderIngredientsColumn>
                     {portion}
                 </PlateOrderIngredientsColumn>
-            </>
+            </React.Fragment>
         );
 
         return data;
@@ -70,7 +83,9 @@ const OrderComponent = (orderData) => {
                 </PlateOrderIngredients>
             </PlateOrderDetailsContainer>
 
-            <PlateOrderButton>Prepare it!</PlateOrderButton>
+            <PlateOrderButton onClick={beginOrder}>
+                Prepare it!
+            </PlateOrderButton>
         </PlateOrderContainer>
     );
 };
