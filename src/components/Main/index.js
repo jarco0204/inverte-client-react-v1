@@ -15,23 +15,8 @@ import axios from "axios";
 import "../../assets/css/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
 import OrderComponent from "../Order/";
-// import { io } from "socket.io-client";
 
 const MainComponent = () => {
-    // let socket = io("http://localhost:8000/");
-    // const sendMessageSocket = (event) => {
-    //     event.preventDefault();
-    //     console.log("Sending message.");
-    //     socket.emit("chat", {
-    //         name: "Johan was here",
-    //         message: "Weight-reading",
-    //     });
-    // };
-    // socket.on("chat", (data) => {
-    //     console.log("Receiving a message");
-    //     console.log(data);
-    // });
-
     //Setting the state
     const [start, setVisible] = useState(true);
     const [order, setOrderVisible] = useState(false);

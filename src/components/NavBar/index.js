@@ -47,7 +47,7 @@ export const Navbar = ({ toggle }) => {
         <>
             <Nav>
                 <NavbarContainer pos={true}>
-                    <NavLogo to="/">
+                    <NavLogo to="/username/main">
                         <Logo src={logo} />
                         Web-App
                     </NavLogo>
