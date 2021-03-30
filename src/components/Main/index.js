@@ -15,6 +15,7 @@ import axios from "axios";
 import "../../assets/css/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
 import OrderComponent from "../Order/";
+import * as dashboardData from "../../assets/refinedArtificialDS1.0.json";
 // import { io } from "socket.io-client";
 
 const MainComponent = () => {
@@ -35,11 +36,13 @@ const MainComponent = () => {
     //Setting the state
     const [start, setVisible] = useState(true);
     const [order, setOrderVisible] = useState(false);
+    const [dashboard, setDashboardVisible] = useState(false);
     const [plateOrders, setPlateOrders] = useState([]);
 
     //Function to change the shown component
     const changeComponent = async (e, direction) => {
         e.preventDefault();
+        console.log(direction)
         if (direction) {
             setVisible(false);
             await fetchAvailablePlates();
@@ -47,6 +50,20 @@ const MainComponent = () => {
         } else {
             setVisible(true);
             setOrderVisible(false);
+        }
+    };
+
+    //Function to change the shown component
+    const changeDashboard = async (e, direction) => {
+        e.preventDefault();
+        console.log(direction)
+        if (direction) {
+            setVisible(false);
+            await fetchDashboardData();
+            setDashboardVisible(true);
+        } else {
+            setVisible(true);
+            setDashboardVisible(false);
         }
     };
 
@@ -98,6 +115,10 @@ const MainComponent = () => {
             });
     };
 
+    const fetchDashboardData = async () => {
+        console.log(dashboardData.default.ClientName)
+    }
+
     return (
         <MainContainer>
             <HeroSection>
@@ -129,7 +150,9 @@ const MainComponent = () => {
                                 <FunctionalityThumbnail
                                     src={VisualizeAnalytics}
                                 />
-                                <FunctionalityButton>
+                                <FunctionalityButton
+                                    onClick={(e) => changeDashboard(e, true)}
+                                >
                                     Go to Dashoboard
                                 </FunctionalityButton>
                             </HeroFunctionality>
@@ -144,6 +167,24 @@ const MainComponent = () => {
                             Go back
                         </GoBackButton>
                         <HeroTitle>What are you cooking?</HeroTitle>
+
+                        <Carousel
+                            autoPlay={true}
+                            infiniteLoop={true}
+                            showThumbs={false}
+                        >
+                            {plateOrders}
+                        </Carousel>
+                    </>
+                )}
+                {dashboard && (
+                    <>
+                        <GoBackButton
+                            onClick={(e) => changeComponent(e, false)}
+                        >
+                            Go back
+                        </GoBackButton>
+                        <HeroTitle>dashboard</HeroTitle>
 
                         <Carousel
                             autoPlay={true}
