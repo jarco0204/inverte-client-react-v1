@@ -15,7 +15,8 @@ import axios from "axios";
 import "../../assets/css/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
 import OrderComponent from "../Order/";
-import * as dashboardData from "../../assets/refinedArtificialDS1.0.json";
+import data from "../../refinedArtificialDS1.0.json";
+import {Line} from 'react-chartjs-2';
 // import { io } from "socket.io-client";
 
 const MainComponent = () => {
@@ -38,6 +39,51 @@ const MainComponent = () => {
     const [order, setOrderVisible] = useState(false);
     const [dashboard, setDashboardVisible] = useState(false);
     const [plateOrders, setPlateOrders] = useState([]);
+    let x= []
+    let y= []
+
+    let state = {
+        labels: ["2020-01-01T09:50:00GMT", "2020-01-01T12:30:00GMT", "2020-01-01T12:50:00GMT", "2020-01-01T14:20:00GMT", "2020-01-01T14:30:00GMT"],
+        datasets: [
+            {
+            label: 'Rainfall',
+            fill: false,
+            lineTension: 0.5,
+            backgroundColor: 'white',
+            borderColor: 'rgba(0,0,0,1)',
+            borderWidth: 2,
+            data: [139, 68, 142, 68, 73]
+            }
+        ]
+        } 
+    const filterData = async (ingredient, yr, mnth) => {
+        // get the id for the request ingredient and filter out date 
+        getKeyByValue(data["Protein"],ingredient).filter((e)=>{
+
+            // get protein weight belongs to the request ingredient, year and month
+            let weight = getValueByKey(data["ProteinWeight"],e)
+            // get date belongs to the request ingredient, year and month
+            let date = getValueByKey(data["Date"],e)
+
+            let year = date.substring(0, 4)
+            let month = date.substring(5, 7)
+            let day = date.substring(8, 10)
+
+            if(parseInt(year) === yr && parseInt(month) === mnth){
+                console.log(`year ${yr} month ${mnth} day ${day}`)
+                y.push(date)
+                x.push(weight)
+            }        
+            }) 
+    }
+
+    function getKeyByValue(object, value) {
+        return Object.keys(object).filter(key => object[key] === value);
+    }
+
+     function getValueByKey(object, k) {
+        return Object.values(object).find(value => object[k] === value);
+    } 
 
     //Function to change the shown component
     const changeComponent = async (e, direction) => {
@@ -59,7 +105,8 @@ const MainComponent = () => {
         console.log(direction)
         if (direction) {
             setVisible(false);
-            await fetchDashboardData();
+            await filterData("Chicken", 2020, 1);
+            
             setDashboardVisible(true);
         } else {
             setVisible(true);
@@ -114,10 +161,6 @@ const MainComponent = () => {
                 console.log(err);
             });
     };
-
-    const fetchDashboardData = async () => {
-        console.log(dashboardData.default.ClientName)
-    }
 
     return (
         <MainContainer>
@@ -185,7 +228,21 @@ const MainComponent = () => {
                             Go back
                         </GoBackButton>
                         <HeroTitle>dashboard</HeroTitle>
-
+                        <p>{y}</p>
+                        {<Line
+                        data={state}
+                        options={{
+                            title:{
+                            display:true,
+                            text:'Meat fluctuation',
+                            fontSize:20
+                            },
+                            legend:{
+                            display:true,
+                            position:'right'
+                            }
+                        }}
+                        />}
                         <Carousel
                             autoPlay={true}
                             infiniteLoop={true}
