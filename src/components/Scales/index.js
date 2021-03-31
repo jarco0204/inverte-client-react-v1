@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, createRef } from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import {
     ScalesBackground,
@@ -17,18 +17,29 @@ import { io } from "socket.io-client";
 const Scales = (orderData) => {
     const history = useHistory();
     // eslint-disable-next-line no-unused-vars
-    const [ref, setRef] = useState(); //Using state to re-render after refs are updated
-    let ingredientsLength = orderData.orderData.order.ingredients.length;
-    const scalesRef = useRef(Array(ingredientsLength).fill(createRef()));
+    // const [ref, setRef] = useState(); //Using state to re-render after refs are updated
+    // let ingredientsLength = orderData.orderData.order.ingredients.length;
+    // const scalesRef = useRef(Array(ingredientsLength).fill(createRef()));
+
+    // eslint-disable-next-line no-unused-vars
+    const [scales, setScales] = useState([0, 0]);
+
     // const scalesRef = useRef();
 
     // console.log(orderData.orderData.order.order);
     let socket = io("http://localhost:8000/");
     socket.on("updateWR", (weightReading) => {
-        console.log("i get data");
+        console.log(weightReading);
+        if (weightReading.scaleID) {
+            setScales([scales[0], weightReading.weight]);
+        } else {
+            setScales([weightReading.weight, scales[1]]);
+        }
         // console.log(weightReading.message);
-        scalesRef.current[0].current = weightReading.weight;
-        setRef();
+
+        // scalesRef.current[weightReading.scaleID].current = weightReading.weight;
+        // console.log(weightReading.accuracy);
+
         // setWeightReading(weightReading.weight);
     });
     const createScaleCards = () => {
@@ -43,8 +54,8 @@ const Scales = (orderData) => {
                     <ScaleLabelTitle>Current Weight (g): </ScaleLabelTitle>
                     <ScaleLabelField
                         type="text"
-                        ref={(el) => (scalesRef.current[i] = el)}
-                        placeholder={scalesRef.current[i].current}
+                        // ref={(el) => (scalesRef.current[i] = el)}
+                        placeholder={scales[i]}
                         readOnly
                     ></ScaleLabelField>
                 </ScaleCard>
@@ -59,16 +70,16 @@ const Scales = (orderData) => {
         history.push("/username/main");
     };
 
-    useEffect(() => {
-        for (let i = 0; i < ingredientsLength; i++) {
-            // console.log("I execute");
-            // console.log(i);
-            scalesRef.current[i].current = i;
-        }
-        console.log(scalesRef);
-        setRef(scalesRef);
-        // console.log(ref);
-    }, []);
+    // useEffect(() => {
+    //     for (let i = 0; i < ingredientsLength; i++) {
+    //         // console.log("I execute");
+    //         // console.log(i);
+    //         scalesRef.current[i].current = i;
+    //     }
+    //     console.log(scalesRef);
+    //     setRef(scalesRef);
+    //     // console.log(ref);
+    // }, []);
     // }
     //     return 1;
     // };
