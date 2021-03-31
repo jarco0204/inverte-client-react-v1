@@ -5,7 +5,7 @@ const LineChartComponent = () => {
 
     const [dashboardData, setDashboardData] = useState({});
     const [ingredientInput, setIngredientInput] = useState("Tuna");
-    const [dateInput, setDateInput] = useState("2020-01-03");
+    const [dateInput, setDateInput] = useState("2020-01-01");
     let x = []
     let y = []
 
@@ -69,7 +69,7 @@ const LineChartComponent = () => {
  
     // load filterData after everything is
     useEffect(() => {
-        filterData(ingredientInput, 2020, 1, 3)
+        filterData(ingredientInput, 2020, 1, 1)
       },[ingredientInput], dateInput);
 
     function getKeyByValue(object, value) {
@@ -80,7 +80,7 @@ const LineChartComponent = () => {
         return Object.values(object).find(value => object[k] === value);
     }
     return (
-        <div className="dashboard_container">
+        <div>
             <div className="lineChart_input">
                 <select id="ingredient" name="ingredient" value={ingredientInput} onBlur onChange={handleIngredientChange}>
                     <option value="Tuna">Tuna</option>
@@ -120,7 +120,7 @@ const LineChartComponent = () => {
                                 scaleLabel: {
                                     display: true,
                                     labelString: 'Date',
-                                    fontColor: "white"
+                                    fontColor: "darkorange"
                                 },
                                 ticks: {
                                     fontColor: "white",
@@ -131,7 +131,7 @@ const LineChartComponent = () => {
                                 scaleLabel: {
                                     display: true,
                                     labelString: "Ingredient's Weight",
-                                    fontColor: "white"
+                                    fontColor: "darkorange"
                                 },
                                 ticks: {
                                     fontColor: "white",

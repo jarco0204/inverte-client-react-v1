@@ -180,8 +180,11 @@ const MainComponent = () => {
                         >
                             Go back
                         </GoBackButton>
+                        <div className="dashboard_container">
                         <HeroTitle>Ingredient&apos;s Fluctuation Line Chart</HeroTitle>
                         <LineChartComponent></LineChartComponent>
+                        </div>
+                        
                     </>
                 )}
             </HeroSection>
