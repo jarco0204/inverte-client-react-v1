@@ -1,11 +1,22 @@
 import React, {useState, useEffect} from "react";
 import data from "../../refinedArtificialDS1.0.json";
 import { Line } from 'react-chartjs-2';
+import { css } from "@emotion/core";
+import SyncLoader from "react-spinners/SyncLoader";
+const override = css`
+  position: fixed;
+  display: block;
+  margin: 0 auto;
+  opacity: .5;
+  border-color: white;
+`;
+
 const LineChartComponent = () => {
 
     const [dashboardData, setDashboardData] = useState({});
     const [ingredientInput, setIngredientInput] = useState("Tuna");
     const [dateInput, setDateInput] = useState("2020-01-03");
+    let [loading, setLoading] = useState(true);
     let x = []
     let y = []
 
@@ -29,6 +40,7 @@ const LineChartComponent = () => {
     }
 
     const filterData = async (ingredient, yr, mnth, dy) => {
+        
         // get the id for the request ingredient and filter out date 
         getKeyByValue(data["Protein"], ingredient).filter((e) => {
 
@@ -70,7 +82,9 @@ const LineChartComponent = () => {
     // load filterData after everything is
     useEffect(() => {
         filterData(ingredientInput, 2020, 1, 3)
-      },[ingredientInput], dateInput);
+        setLoading(!loading)
+        console.log(loading)
+      },[ingredientInput]);
 
     function getKeyByValue(object, value) {
         return Object.keys(object).filter(key => object[key] === value);
@@ -81,6 +95,7 @@ const LineChartComponent = () => {
     }
     return (
         <div className="dashboard_container">
+            <SyncLoader color="#ffffff" loading={loading} css={override} size={10} />
             <div className="lineChart_input">
                 <select id="ingredient" name="ingredient" value={ingredientInput} onBlur onChange={handleIngredientChange}>
                     <option value="Tuna">Tuna</option>
@@ -141,6 +156,7 @@ const LineChartComponent = () => {
                         }
                     }}
                 />
+                
             </div>
         </div>
     );
