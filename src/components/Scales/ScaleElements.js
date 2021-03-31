@@ -112,4 +112,25 @@ export const ScaleLabelField = styled.input`
     background-color: white;
     color: black;
     font-size: 20px;
+    cursor: pointer;
+    outline: none;
+`;
+
+export const ScalesFinishButtonContainer = styled.div`
+    display: flex;
+    justify-content: center;
+`;
+
+export const ScalesFinishButton = styled.button`
+    border-radius: 12px;
+    size: 20px;
+    background-color: red;
+    color: whitesmoke;
+    border: 1px solid whitesmoke;
+    padding: 10px 10px;
+    &:hover {
+        background: whitesmoke;
+        color: green;
+        border: 2px solid black;
+    }
 `;

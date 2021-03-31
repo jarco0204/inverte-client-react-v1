@@ -65,7 +65,9 @@ const OrderComponent = (orderData) => {
 
     return (
         <PlateOrderContainer>
-            <PlateOrderTitle>{orderData.ingredients.order}</PlateOrderTitle>
+            <PlateOrderTitle>
+                {orderData.ingredients.order + " Plate"}
+            </PlateOrderTitle>
             <PlateOrderDetailsContainer>
                 <PlateOrderThumbnail src={foodThumbnail} />
                 <PlateOrderIngredients>
@@ -75,7 +77,7 @@ const OrderComponent = (orderData) => {
                                 Ingredients
                             </PlateOrderIngredientsTitle>
                             <PlateOrderIngredientsTitle>
-                                Weight
+                                Portion Weight
                             </PlateOrderIngredientsTitle>
                         </PlateOrderIngredientsRow>
                     </PlateOrderIngredientsBody>

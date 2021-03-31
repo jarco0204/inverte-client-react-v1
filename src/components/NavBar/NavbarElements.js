@@ -93,7 +93,7 @@ export const NavMenu = styled.ul`
     align-items: center;
     /* margin-left: 50px; */
     /* margin-right: 30px; */
-    padding: 40px 30px;
+    padding: 35px 30px;
     @media screen and (max-width: 768px) {
         display: none;
     }

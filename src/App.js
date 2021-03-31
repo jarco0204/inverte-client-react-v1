@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import SignInPage from "./pages/SignIn";
 import MainComponent from "./pages/UserMain";
 import PrepareOrder from "./pages/Prepare";
+import Settings from "./pages/Settings";
 
 function App() {
     return (
@@ -19,6 +20,9 @@ function App() {
                     component={PrepareOrder}
                     exact
                 />
+            </Switch>
+            <Switch>
+                <Route path="/username/settings" component={Settings} exact />
             </Switch>
         </Router>
     );

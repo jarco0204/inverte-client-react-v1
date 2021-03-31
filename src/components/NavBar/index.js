@@ -49,21 +49,20 @@ export const Navbar = ({ toggle }) => {
                 <NavbarContainer pos={true}>
                     <NavLogo to="/username/main">
                         <Logo src={logo} />
-                        Web-App
+                        InVerte App
                     </NavLogo>
                     <MobileIcon onClick={toggle}>
                         <FaBars />
                     </MobileIcon>
                     <NavMenu>
                         <NavItem>
-                            <NavLinks to="#">Analytics</NavLinks>
-                        </NavItem>
-                        <NavItem>
-                            <NavLinks to="#">Settings</NavLinks>
+                            <NavLinks to="/username/settings">
+                                Settings
+                            </NavLinks>
                         </NavItem>
                     </NavMenu>
                     <NavBtn>
-                        <NavBtnLink to="/signin">Logout</NavBtnLink>
+                        <NavBtnLink to="/">Logout</NavBtnLink>
                     </NavBtn>
                 </NavbarContainer>
             </Nav>
