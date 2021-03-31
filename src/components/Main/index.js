@@ -176,7 +176,7 @@ const MainComponent = () => {
                 {dashboard && (
                     <>
                         <GoBackButton
-                            onClick={(e) => changeComponent(e, false)}
+                            onClick={(e) => changeDashboard(e, false)}
                         >
                             Go back
                         </GoBackButton>

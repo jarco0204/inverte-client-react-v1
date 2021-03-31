@@ -56,11 +56,11 @@ const LineChartComponent = () => {
                     fill: true,
                     lineTension: 0.5,
                     backgroundColor: 'rgba(1,1,1,0.5)',
-                    borderColor: 'rgba(1,1,1,1)',
+                    borderColor: 'grey',
                     color: 'white',
                     borderWidth: 2,
                     data: x,
-                    pointBorderColor: 'white',
+                    pointBorderColor: 'darkorange',
                 }
             ]
         }
