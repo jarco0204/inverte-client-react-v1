@@ -12,25 +12,36 @@ const handleColorCard = () => {
     // }
     return "#14213d";
 };
-
+export const ScalesBackground = styled.div`
+    height: 700px;
+    background: rgb(9, 131, 193);
+    background: linear-gradient(
+        90deg,
+        rgba(9, 131, 193, 1) 0%,
+        rgba(74, 237, 160, 1) 52%,
+        rgba(9, 131, 193, 1) 100%
+    );
+`;
 export const ScalesContainer = styled.div`
     /* background-color: #14213d; */
-    position: relative;
-    height: 800px;
-    width: 100%;
+    /* position: relative; */
+    /* 
+    height: 100%;
+    width: 100%; */
+    padding: 50px 0px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: whitesmoke;
-    /* 
+    overflow: hidden;
+`;
+/* 
     @media screen and (max-width: 1200px) {
         height: 1400px;
     }
     @media screen and (max-width: 760px) {
         height: 2300px;
     } */
-`;
 
 export const ScalesWrapper = styled.div`
     z-index: 10;

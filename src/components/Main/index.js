@@ -18,21 +18,8 @@ import OrderComponent from "../Order/";
 import LineChartComponent from "../chart/index"
 // import { io } from "socket.io-client";
 
-const MainComponent = () => {
-    // let socket = io("http://localhost:8000/");
-    // const sendMessageSocket = (event) => {
-    //     event.preventDefault();
-    //     console.log("Sending message.");
-    //     socket.emit("chat", {
-    //         name: "Johan was here",
-    //         message: "Weight-reading",
-    //     });
-    // };
-    // socket.on("chat", (data) => {
-    //     console.log("Receiving a message");
-    //     console.log(data);
-    // });
 
+const MainComponent = () => {
     //Setting the state
     const [start, setVisible] = useState(true);
     const [order, setOrderVisible] = useState(false);
