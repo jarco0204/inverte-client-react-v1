@@ -1,16 +1,26 @@
-const io = require("socket.io-client");
+import { io } from "socket.io-client";
 
+/**
+ * Variables and constants
+ */
 const socket = io("http://localhost:8000/");
 let weightScale1 = 2000;
 let weightScale2 = 2000;
 
-const sendData = async () => {
+/**
+ * Mimics a weighting scale client hardware.
+ * Executes every 2.5 seconds
+ */
+const main = () => {
+    setInterval(sendData, 2500);
+};
+const sendData = () => {
     // Second parameter is data in socket.io server
-    let answer = await getWeightReading();
+    let answer = getWeightReading();
     if (!answer) {
         console.log("No change generated");
     } else {
-        await socket.emit("updateWeightReading", answer);
+        socket.emit("updateWeightReading", answer);
     }
 };
 const getWeightReading = () => {
@@ -49,9 +59,6 @@ const fluctuateFoodPan = (scaleID) => {
         }
         return { cur: weightScale2, prev: prevWeight };
     }
-};
-const main = () => {
-    setInterval(sendData, 2500);
 };
 
 main(); // Start progra
