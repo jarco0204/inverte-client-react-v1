@@ -1,39 +1,39 @@
-### InVerte React Web App V0.0.1
+# InVerte React Web App 
 
-# Created with npx create-react-app
-(https://github.com/facebook/create-react-app)
+## Authors: InVerteDev1
 
-# Requires that the API server is running alongside
-https://github.com/jarco0204/inverte-api
+## Version: V.0.0.2
 
 # Summary
-Web app used for MVP of InVerte inventory management Service.
+Web app used for MVP of InVerte inventory management Service. Created with npx create-react-app.
 The main goal is to read weight-readings real-time from web-sockets.
 The app will give a visualization of the added *PlateOrders* of an specific restaurant
 
 # Available Scripts
-Install dependencies: npm install or npm ci
-Start web app: npm run start
 
-# Assumptions
-1. Users can only sign-in.
-# Implications
-1. email is jaarcos@mun.ca and password is inverte56Rules. Do add this data to the mongo.The database name is inverte-api-server and the collection name is usersLogInCollection.
+## Install dependencies: 
+npm install or npm ci
 
+## Start web app:
+ npm run start
 
-# Future fixes
-1. Dynamic routing /"usernameID"/main
+## Test websocket:
+ npm run webSocketBot
 
+# How to Run?
 
-## Authentication Login:
-### Email: 
-jaarcos@mun.ca
-### Password:
-inverte56Rules
+## Requires that the API server is running alongside
+https://github.com/jarco0204/inverte-api
 
+1. npm run install
+2. npm run start
 
+## To test websockets in username/prepare
+1. Open a different terminal window.
+2. Navigate to root of project.
+3. npm run webSocketBot
 
-## Modules Installed
+# Modules Installed
 
 ### react-router-dom
 Used to handle the pages
@@ -47,6 +47,13 @@ Also installed eslint-config-prettier.
 ### react-carousel-responsive
 The CSS export file is in assets/css
 
+### socket.io client
+Receive data sent from WeightScaleBot.js
 
+### chart.js
+Display data on dashboard-style.
+
+# Future fixes
+1. Dynamic routing /"usernameID"/main
 
 

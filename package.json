@@ -1,6 +1,6 @@
 {
-    "name": "client",
-    "version": "0.1.0",
+    "name": "inverte-react-client",
+    "version": "0.0.2",
     "private": true,
     "dependencies": {
         "@testing-library/jest-dom": "^5.11.9",
@@ -26,7 +26,8 @@
         "test": "react-scripts test",
         "eject": "react-scripts eject",
         "format:json": "prettier \"*.json\" --write",
-        "format:css": "prettier \"*.min.css\" --write"
+        "format:css": "prettier \"*.min.css\" --write",
+        "webSocketBot": "node WeightScaleBot.js"
 
     },
     "eslintConfig": {
