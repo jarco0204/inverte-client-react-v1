@@ -308,8 +308,56 @@ input {
     align-items: center;
 }
 .lineChart {
-    width: 1200px;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
         "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
         "Helvetica Neue", sans-serif;
+}
+
+@media screen and (min-width: 1251px) {
+    .lineChart {
+        width: 1000px;
+    }
+}
+
+@media screen and (max-width: 1250px) and  (min-width: 1151px) {
+    .lineChart {
+        width: 890px;
+    }
+}
+
+@media screen and (max-width: 1150px) and (min-width: 901px) {
+    .lineChart {
+        width: 700px;
+    }
+}
+
+@media screen and (max-width: 900px) and (min-width: 701px) {
+    .lineChart {
+        width: 550px;
+    }
+}
+@media screen and (max-width: 700px) and (min-width: 551px){
+    .lineChart {
+        width: 450px;
+    }
+}
+
+@media screen and (max-width: 550px) and (min-width: 401px){
+    .lineChart {
+        width: 330px;
+    }
+    .lineChart_input select, input {
+        width: 100px;
+        height: 50px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .lineChart {
+        width: 230px;
+    }
+    .lineChart_input select, input {
+    width: 100px;
+    height: 50px;
+    }
 }

@@ -115,14 +115,14 @@ const LineChartComponent = () => {
             <div className="lineChart">
                 <Line
                     data={dashboardData}
-                    width={100}
+                    width={90}
                     height={23}
                     options={{
                         fontColor: "white",
                         title: {
                             display: false,
                             text: "Meat fluctuation",
-                            fontSize: 20,
+                            fontSize: 18,
                             fontColor: "white",
                         },
                         legend: {
