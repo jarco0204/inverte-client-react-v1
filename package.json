@@ -25,7 +25,9 @@
         "build": "react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject",
-        "format:json": "prettier \"*.json\" --write"
+        "format:json": "prettier \"*.json\" --write",
+        "format:css": "prettier \"*.min.css\" --write"
+
     },
     "eslintConfig": {
         "extends": [

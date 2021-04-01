@@ -9,6 +9,9 @@ import {
     ScaleLabelTitle,
     ScaleLabelField,
     ScaleOrderTitle,
+    ScaleAccuracyContainer,
+    ScaleAccuracyElement,
+    ScaleAccuracyLabel,
     ScalesFinishButtonContainer,
     ScalesFinishButton,
 } from "./ScaleElements";
@@ -58,6 +61,21 @@ const Scales = (orderData) => {
                         placeholder={scales[i]}
                         readOnly
                     ></ScaleLabelField>
+                    <ScaleLabelTitle>Portion Accuracy: </ScaleLabelTitle>
+                    <ScaleAccuracyContainer>
+                        <ScaleAccuracyElement
+                            color={"orange"}
+                        ></ScaleAccuracyElement>
+                        <ScaleAccuracyElement
+                            color={"greenyellow"}
+                        ></ScaleAccuracyElement>
+                        <ScaleAccuracyElement
+                            color={"red"}
+                        ></ScaleAccuracyElement>
+                        <ScaleAccuracyLabel>Underserving</ScaleAccuracyLabel>
+                        <ScaleAccuracyLabel>Perfect</ScaleAccuracyLabel>
+                        <ScaleAccuracyLabel>Overserving</ScaleAccuracyLabel>
+                    </ScaleAccuracyContainer>
                 </ScaleCard>
             );
             // console.log(i);

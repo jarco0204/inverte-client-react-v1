@@ -15,7 +15,7 @@ import axios from "axios";
 import "../../assets/css/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
 import OrderComponent from "../Order/";
-import LineChartComponent from "../chart/index"
+import LineChartComponent from "../Chart/index"
 // import { io } from "socket.io-client";
 
 

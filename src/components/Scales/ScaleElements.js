@@ -13,7 +13,6 @@ const handleColorCard = () => {
     return "#14213d";
 };
 export const ScalesBackground = styled.div`
-    height: 700px;
     background: rgb(9, 131, 193);
     background: linear-gradient(
         90deg,
@@ -55,12 +54,12 @@ export const ScalesWrapper = styled.div`
 
     /* @media screen and (max-width: 1000px) {
         grid-template-columns: 1fr 1fr;
-    }
+    } */
 
     @media screen and (max-width: 768px) {
         grid-template-columns: 1fr;
         padding: 0 20px;
-    } */
+    }
 `;
 
 export const ScaleCard = styled.div`
@@ -115,6 +114,23 @@ export const ScaleLabelField = styled.input`
     cursor: pointer;
     outline: none;
 `;
+export const ScaleAccuracyContainer = styled.div`
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+`;
+export const ScaleAccuracyElement = styled.div`
+    border-radius: 20px;
+    margin: 5px 40px;
+    height: 25px;
+    width: 25px;
+    background-color: ${({ color }) => color};
+`;
+export const ScaleAccuracyLabel = styled.h3`
+    text-align: center;
+    font-size: 10px;
+    margin: 0 20px;
+    color: whitesmoke;
+`;
 
 export const ScalesFinishButtonContainer = styled.div`
     display: flex;
@@ -128,6 +144,7 @@ export const ScalesFinishButton = styled.button`
     color: whitesmoke;
     border: 1px solid whitesmoke;
     padding: 10px 10px;
+    margin: 20px 0;
     &:hover {
         background: whitesmoke;
         color: green;
