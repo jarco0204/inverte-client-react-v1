@@ -28,7 +28,6 @@
         "format:json": "prettier \"*.json\" --write",
         "format:css": "prettier \"*.min.css\" --write",
         "webSocketBot": "node WeightScaleBot.js"
-
     },
     "eslintConfig": {
         "extends": [
