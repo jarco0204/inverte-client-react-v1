@@ -23,6 +23,26 @@ export const HeroSection = styled.div`
     margin: auto;
     justify-content: center;
     /* position: fixed; */
+    
+    @media screen and (max-width: 750px) and (min-width: 650px){
+
+        height: 500px;
+        width: 85%;
+    }
+
+    @media screen and (max-width: 649px) and (min-width: 450px){
+
+        height: 450px;
+        width: 95%;
+    }
+
+    @media screen and (max-width: 450px) and (min-width: 200px){
+
+        height: 450px;
+        width: 99%;
+        align-items: center;
+    }
+
 `;
 export const HeroTitle = styled.h1`
     color: darkorange;
@@ -64,12 +84,50 @@ export const FunctionalityButton = styled.button`
         color: green;
         border: 2px solid black;
     }
+
+    @media screen and (max-width: 750px) and (min-width: 650px){
+
+        font-size: 15px;
+    }
+    @media screen and (max-width: 649px) and (min-width: 450px){
+
+        font-size: 13px;
+    }
+
+    @media screen and (max-width: 450px) and (min-width: 200px){
+
+        font-size: 11px;
+    }
 `;
 export const FunctionalityThumbnail = styled.img`
     padding: 20px 0;
     margin: auto;
     height: 200px;
     width: 400px;
+
+    @media screen and (max-width: 750px) and (min-width: 650px){
+
+        padding: 15px 0;
+        margin: auto;
+        height: 180px;
+        width: 350px;
+    }
+
+    @media screen and (max-width: 649px) and (min-width: 450px){
+
+        padding: 15px 0;
+        margin: auto;
+        height: 150px;
+        width: 320px;
+    }
+
+    @media screen and (max-width: 450px) and (min-width: 200px){
+
+        padding: 12px 0;
+        margin: auto;
+        height: 135px;
+        width: 280px;
+    }
 `;
 export const GoBackButton = styled.button`
     transform: translateY(-800%);
