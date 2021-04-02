@@ -29,9 +29,9 @@ https://github.com/jarco0204/inverte-api
 2. npm run start
 
 ## To test websockets in username/prepare
-1. Open a different terminal window.
-2. Navigate to root of project.
-3. npm run webSocketBot
+• Assumes that you have Clicked on Select Plate button -> Click on Prepare it button -> url shoudl be username/preapre
+1. Open a different terminal window (assumes that client and api are running).
+2. npm run webSocketBot
 
 # Modules Installed
 

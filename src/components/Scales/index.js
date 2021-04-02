@@ -27,7 +27,6 @@ const Scales = (orderData) => {
         history.push("/username/main");
     };
     const [scales, setScales] = useState([0, 0]);
-
     /**
      * Hook that executes after component is mounted.
      * @arg: [] array of empty dependencies which assures that the hook runs only once.
@@ -35,6 +34,7 @@ const Scales = (orderData) => {
     useEffect(() => {
         const socket = io("http://localhost:8000/");
         socket.on("updateWR", (weightReading) => {
+            console.log(scales);
             if (weightReading.scaleID) {
                 setScales([scales[0], weightReading.weight]);
             } else {
@@ -43,7 +43,7 @@ const Scales = (orderData) => {
         });
         // CLEAN UP THE EFFECT
         return () => socket.disconnect();
-    }, []);
+    }, [scales]);
 
     /**
      * Dynamically create the ScaleCard components based on user choice
