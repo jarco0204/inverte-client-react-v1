@@ -15,9 +15,8 @@ import axios from "axios";
 import "../../assets/css/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
 import OrderComponent from "../Order/";
-import LineChartComponent from "../Chart/index"
+import LineChartComponent from "../Chart/index";
 // import { io } from "socket.io-client";
-
 
 const MainComponent = () => {
     //Setting the state
@@ -29,7 +28,7 @@ const MainComponent = () => {
     //Function to change the shown component
     const changeComponent = async (e, direction) => {
         e.preventDefault();
-        console.log(direction)
+        console.log(direction);
         if (direction) {
             setVisible(false);
             await fetchAvailablePlates();
@@ -43,7 +42,7 @@ const MainComponent = () => {
     //Function to change the shown component
     const changeDashboard = async (e, direction) => {
         e.preventDefault();
-        console.log(direction)
+        console.log(direction);
         if (direction) {
             setVisible(false);
 
@@ -168,10 +167,11 @@ const MainComponent = () => {
                             Go back
                         </GoBackButton>
                         <div className="dashboard_container">
-                        <HeroTitle>Ingredient&apos;s Fluctuation Line Chart</HeroTitle>
-                        <LineChartComponent></LineChartComponent>
+                            <HeroTitle>
+                                Ingredient&apos;s Fluctuation Line Chart
+                            </HeroTitle>
+                            <LineChartComponent></LineChartComponent>
                         </div>
-                        
                     </>
                 )}
             </HeroSection>

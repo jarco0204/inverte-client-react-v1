@@ -9,20 +9,29 @@ let weightScale2 = 2000;
 
 /**
  * Mimics a weighting scale client hardware.
- * Executes every 2.5 seconds
+ * Executes every 2.5 seconds, but in practice it will execute once it detects a weight change
  */
 const main = () => {
     setInterval(sendData, 2500);
 };
+/**
+ * Send data to the websocket running in localhost
+ * Calls getWeightReading() which returns an object or false.
+ */
 const sendData = () => {
     // Second parameter is data in socket.io server
     let answer = getWeightReading();
     if (!answer) {
-        console.log("No change generated");
+        console.log("No change generated; thus, don't send any data");
     } else {
         socket.emit("updateWeightReading", answer);
     }
 };
+/**
+ * Uses chance to determine if a change is generated or not.
+ * It also determines which scaleID is the change being generated for
+ * @returns false if change is not generated or a weight reading object.
+ */
 const getWeightReading = () => {
     let orderChance = Math.floor(Math.random() * 2); //0 or 1
     if (orderChance) {
@@ -40,6 +49,12 @@ const getWeightReading = () => {
         return false;
     }
 };
+/**
+ * Determines the current weight and previous weight of food pan.
+ * For V.0.0.2, it only works with two weighing scales.
+ * @param {*} scaleID
+ * @returns obj{prevWeight and curWeight}
+ */
 const fluctuateFoodPan = (scaleID) => {
     let weightFluctuation = 40 + Math.floor(Math.random() * 10); //40 to 50
     if (scaleID) {
@@ -61,4 +76,4 @@ const fluctuateFoodPan = (scaleID) => {
     }
 };
 
-main(); // Start progra
+main(); // Start program

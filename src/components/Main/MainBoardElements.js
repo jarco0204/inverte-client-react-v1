@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const MainContainer = styled.div`
     display: flex;
     overflow: hidden;
-    height: 650px;
+    height: 670px;
     background: rgb(9, 131, 193);
     background: linear-gradient(
         90deg,
@@ -19,7 +19,8 @@ export const HeroSection = styled.div`
     border-radius: 20px;
     flex-flow: column wrap;
     height: 500px;
-    width: 80%;
+    width: 85%;
+    height: 80%;
     margin: auto;
     justify-content: center;
     /* position: fixed; */
@@ -31,13 +32,16 @@ export const HeroTitle = styled.h1`
     text-align: center;
     padding: 5px 0;
     @media screen and (max-width: 768px) {
-        font-size: 10px;
+        font-size: 15px;
     }
 `;
 export const HeroFunctionality = styled.div`
-    padding-bottom: 50px;
+    padding-bottom: 70px;
     display: flex;
     flex-flow: column nowrap;
+    @media screen and (max-width: 768px) {
+        transform: scale(0.9);
+    }
 `;
 export const FunctionalityTitle = styled.h2`
     /* border: 1px solid whitesmoke; */

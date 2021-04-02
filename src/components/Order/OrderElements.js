@@ -1,11 +1,12 @@
 import styled from "styled-components";
 
 export const PlateOrderContainer = styled.div`
-    padding-bottom: 50px;
     display: flex;
-    flex-flow: column nowrap;
+    padding: 80px 0;
+    flex-direction: column;
     @media screen and (max-width: 768px) {
-        width: 40%;
+        padding: 40px 0;
+        transform: scale(0.5);
     }
 `;
 
@@ -21,24 +22,22 @@ export const PlateOrderTitle = styled.h2`
     font-weight: bold;
 `;
 export const PlateOrderDetailsContainer = styled.div`
-    width: 70%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    margin: 20px 0;
-    /* grid-template-columns: 1fr 1fr;
-    grid-gap: 0px; */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    margin: 10px 0;
     @media screen and (max-width: 768px) {
-        width: 20%;
+        display: flex;
+        flex-direction: column;
     }
 `;
 export const PlateOrderIngredients = styled.table`
-    border: 1px solid whitesmoke;
-    width: 210px;
+    border: 1px solid yellowgreen;
+    width: 50%;
     color: white;
-    @media screen and (max-width: 768px) {
+    /* @media screen and (max-width: 768px) {
         width: 150px;
-    }
+    } */
 `;
 export const PlateOrderIngredientsTitle = styled.th`
     padding: 5px 10px;
@@ -57,10 +56,10 @@ export const PlateOrderIngredientsColumn = styled.td`
 export const PlateOrderThumbnail = styled.img`
     padding: 2px 0;
     margin: 1px 0;
-    height: 150px;
+    height: 100px;
     @media screen and (max-width: 768px) {
-        height: 100px;
-        padding: 0 40px;
+        display: none;
+        padding: 10px 0;
     }
 `;
 
@@ -72,6 +71,7 @@ export const PlateOrderButton = styled.button`
     text-align: center;
     font-size: 18px;
     padding: 10px 10px;
+
     color: whitesmoke;
     font-weight: bold;
     &:hover {

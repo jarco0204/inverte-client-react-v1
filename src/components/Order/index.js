@@ -84,7 +84,6 @@ const OrderComponent = (orderData) => {
                     {buildTable()}
                 </PlateOrderIngredients>
             </PlateOrderDetailsContainer>
-
             <PlateOrderButton onClick={beginOrder}>
                 Prepare it!
             </PlateOrderButton>

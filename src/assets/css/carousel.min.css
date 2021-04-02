@@ -49,6 +49,7 @@
 .carousel-root {
     outline: none;
 }
+
 .carousel {
     position: relative;
     width: 100%;
@@ -57,6 +58,7 @@
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+
 }
 .carousel img {
     width: 100%;
@@ -226,18 +228,17 @@
 }
 .carousel .control-dots {
     position: absolute;
-    bottom: 0;
-    margin: 10px 0;
-    padding: 0;
+    bottom: 8px;
+    margin: 40px 0;
     text-align: center;
     width: 100%;
     z-index: 1;
 }
-@media (min-width: 960px) {
+/* @media (min-width: 960px) {
     .carousel .control-dots {
         bottom: 0;
     }
-}
+} */
 .carousel .control-dots .dot {
     -webkit-transition: opacity 0.25s ease-in;
     -moz-transition: opacity 0.25s ease-in;
@@ -273,6 +274,16 @@
 .carousel:hover .slide .legend {
     opacity: 1;
 }
+/* Media Queries */
+@media screen and (max-width: 768px) {
+    .carousel-root{
+        transform: scale(0.80);
+    } 
+    /* .carousel .slider{
+        width: 40%;
+    } */
+}
+
 /* Yee's Implementation */
 .lineChart_input {
     display: flex;
